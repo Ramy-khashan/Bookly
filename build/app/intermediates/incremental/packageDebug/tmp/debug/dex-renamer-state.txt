@@ -1,0 +1,4 @@
+#Sat Feb 04 23:12:36 EET 2023
+base.0=H\:\\Mine work\\Flutter Coures\\full app\\in process\\bookly\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
