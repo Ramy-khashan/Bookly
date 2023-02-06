@@ -17,7 +17,8 @@ class BookBbuttonActionItem extends StatelessWidget {
           flex: 4,
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
+            primary: Colors.white,
+                // backgroundColor: Colors.white,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(22),
@@ -40,7 +41,8 @@ class BookBbuttonActionItem extends StatelessWidget {
           flex: 4,
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryColor,
+                primary: AppColors.primaryColor,
+                // backgroundColor: AppColors.primaryColor,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0),

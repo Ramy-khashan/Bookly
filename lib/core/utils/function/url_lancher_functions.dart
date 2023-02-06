@@ -1,9 +1,9 @@
- 
-
+import 'package:bookly/app.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-launchURL({required String url}) async { 
+launchURL({required String url}) async {
   try {
     if (await canLaunch(url)) {
       await launch(url);
@@ -11,6 +11,10 @@ launchURL({required String url}) async {
       throw 'Could not launch $url';
     }
   } catch (e) {
-    debugPrint(e.toString());
+    Fluttertoast.showToast(msg: e.toString());
+    showDialog(
+      context: MyApp.navigatorKey.currentContext!,
+      builder: (context) => AlertDialog(content: SelectableText( e.toString()),),
+    );
   }
 }

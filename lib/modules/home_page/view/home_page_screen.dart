@@ -81,8 +81,9 @@ class HomePageScreen extends StatelessWidget {
                                         MaterialPageRoute(
                                           builder: (context) =>
                                               BookDetailsScreen(
-                                                tag:controller
-                                                      .newBooks[index].id! ,
+                                                  tag: controller
+                                                          .newBooks[index].id! +
+                                                      index.toString(),
                                                   book: controller
                                                       .newBooks[index],
                                                   categoryType: controller
@@ -97,8 +98,8 @@ class HomePageScreen extends StatelessWidget {
                                                           ?.categories![0]),
                                         ));
                                   },
-                                  child:  Hero(
-                    tag: controller.newBooks[index].id!,
+                                  child: Hero(
+                                    tag: controller.newBooks[index].id!,
                                     child: CustomNetworkImage(
                                       radius: 15,
                                       height: 250,
@@ -107,8 +108,11 @@ class HomePageScreen extends StatelessWidget {
                                                   .volumeInfo?.imageLinks ==
                                               null
                                           ? ""
-                                          : controller.newBooks[index].volumeInfo
-                                                  ?.imageLinks!.thumbnail ??
+                                          : controller
+                                                  .newBooks[index]
+                                                  .volumeInfo
+                                                  ?.imageLinks!
+                                                  .thumbnail ??
                                               "",
                                     ),
                                   ),
@@ -149,23 +153,25 @@ class HomePageScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => BookDetailsScreen(
-                                            book: controller
-                                                .bestSellerBooks[index],
-                                            categoryType: controller
-                                                        .bestSellerBooks[index]
-                                                        .volumeInfo
-                                                        ?.categories ==
-                                                    null
-                                                ? "all"
-                                                : controller
-                                                    .bestSellerBooks[index]
-                                                    .volumeInfo
-                                                    ?.categories![0], tag:controller
-                                                    .bestSellerBooks[index].id! ,),
+                                          book:
+                                              controller.bestSellerBooks[index],
+                                          categoryType: controller
+                                                      .bestSellerBooks[index]
+                                                      .volumeInfo
+                                                      ?.categories ==
+                                                  null
+                                              ? "all"
+                                              : controller
+                                                  .bestSellerBooks[index]
+                                                  .volumeInfo
+                                                  ?.categories![0],
+                                          tag: controller
+                                              .bestSellerBooks[index].id!,
+                                        ),
                                       ));
                                 },
                                 child: ShowBookInfoItem(
-                                  id:controller.bestSellerBooks[index].id! ,
+                                    id: controller.bestSellerBooks[index].id!,
                                     bookImage: controller.bestSellerBooks[index].volumeInfo?.imageLinks == null
                                         ? ""
                                         : controller

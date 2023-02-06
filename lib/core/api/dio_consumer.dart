@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:bookly/core/Api/status_code.dart';
 import 'package:dio/adapter.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import '../../app.dart';
+import 'package:dio/dio.dart'; 
 import 'api_consumer.dart';
 import 'end_points.dart';
 import 'exceptions.dart';
@@ -60,7 +58,7 @@ class DioConsumer implements ApiConsumer {
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      final response = await client.post(path, queryParameters: queryParameters);
+      final response = await client.delete(path, queryParameters: queryParameters);
       return _handleResponseAsJson(response);
     } on DioError catch (error) {
       handleDioError(error);
@@ -103,7 +101,7 @@ class DioConsumer implements ApiConsumer {
             throw const ConflictException();
 
           case StatusCode.internalServerError:
-            throw const InternalServerException();
+            throw   InternalServerException();
         }
         break;
       case DioErrorType.cancel:

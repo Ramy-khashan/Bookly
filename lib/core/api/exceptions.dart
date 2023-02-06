@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../app.dart';
-import '../widgets/no_network_screen.dart'; 
+import '../widgets/no_network_screen.dart';
 
 class ServerException extends Equatable implements Exception {
   final String? message;
@@ -26,6 +27,8 @@ class BadRequestException extends ServerException {
 
 class UnauthorizedException extends ServerException {
   const UnauthorizedException([message]) : super("Unauthorized");
+
+  //Go to login Page
 }
 
 class NotFoundException extends ServerException {
@@ -37,15 +40,17 @@ class ConflictException extends ServerException {
 }
 
 class InternalServerException extends ServerException {
-  const InternalServerException([message]) : super("Internet Server Error");
+  InternalServerException([message]) : super("Internet Server Error") {
+    Fluttertoast.showToast(msg: "SomeThing went Wrong, Please try again later");
+  }
 }
 
 class NoInternetConnectionException extends ServerException {
-   NoInternetConnectionException([message]) : super("No Internet Connection"){
-     MyApp.navigatorKey.currentState!.pushAndRemoveUntil(
-            MaterialPageRoute(
-              builder: (context) => const NoNetworkScreen(),
-            ),
-            (route) => false);
+  NoInternetConnectionException([message]) : super("No Internet Connection") {
+    MyApp.navigatorKey.currentState!.pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => const NoNetworkScreen(),
+        ),
+        (route) => false);
   }
 }

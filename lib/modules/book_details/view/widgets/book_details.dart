@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookly/core/utils/app_string.dart';
 import 'package:bookly/core/widgets/custom_network_image.dart';
 import 'package:bookly/core/widgets/error_shape.dart';
@@ -14,7 +16,8 @@ import 'book_button_action.dart';
 class BookDetailsItem extends StatelessWidget {
   final String tag;
   const BookDetailsItem({
-    super.key, required this.tag,
+    super.key,
+    required this.tag,
   });
 
   @override
@@ -36,8 +39,8 @@ class BookDetailsItem extends StatelessWidget {
                             controller.bookDdetails!.volumeInfo?.imageLinks ==
                                     null
                                 ? ""
-                                : controller.bookDdetails!.volumeInfo?.imageLinks!
-                                        .thumbnail ??
+                                : controller.bookDdetails!.volumeInfo
+                                        ?.imageLinks!.thumbnail ??
                                     "",
                         width: 160,
                         height: 230,
@@ -95,7 +98,10 @@ class BookDetailsItem extends StatelessWidget {
                             },
                             child: Text(
                               "Description",
-                              style: TextStyle(fontSize: getFont(20)),
+                              style: TextStyle(
+                                  fontSize: getFont(20),
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.white),
                             ))
                       ],
                     ),
@@ -157,7 +163,11 @@ class BookDetailsItem extends StatelessWidget {
                           : "Free",
                     ),
                   ),
-                  controller.bookDdetails?.accessInfo?.pdf?.isAvailable == false
+                  controller.bookDdetails?.accessInfo?.pdf?.isAvailable ==
+                              false ||
+                          controller.bookDdetails?.accessInfo?.pdf
+                                  ?.acsTokenLink ==
+                              null
                       ? Text(
                           AppString.noDownload,
                           style: TextStyle(
@@ -167,6 +177,9 @@ class BookDetailsItem extends StatelessWidget {
                         )
                       : ElevatedButton(
                           onPressed: () {
+                            print(controller
+                                .bookDdetails?.accessInfo?.pdf?.acsTokenLink
+                                .toString());
                             launchURL(
                                 url: controller.bookDdetails?.accessInfo?.pdf
                                         ?.acsTokenLink!

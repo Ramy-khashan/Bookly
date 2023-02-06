@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
         title: AppString.appTitle,
         navigatorKey: MyApp.navigatorKey,
         theme: ThemeData(
-          useMaterial3: true,
+           useMaterial3: true,
           brightness: Brightness.dark,
           scaffoldBackgroundColor: AppColors.black,
           primarySwatch: Colors.blue,
