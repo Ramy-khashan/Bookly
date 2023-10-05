@@ -33,7 +33,7 @@ showSheet(
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.all(getWidth(15)),
-                  child: Column(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Directionality(
                         textDirection:

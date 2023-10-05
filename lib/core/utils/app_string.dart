@@ -5,6 +5,7 @@ class AppString{
     static const String noDownload ="Not Available To Download";
     static const String canAlsoLike = "You can also like"; 
     static const String noInterNet = "Something went wrong, Check your network!"; 
+    static const String themeKey = "theme"; 
 
 
 }

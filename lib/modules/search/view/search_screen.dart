@@ -46,6 +46,7 @@ class SearchScreen extends StatelessWidget {
                             image: AppAssets.notFoundImage,
                             head: AppString.searchEmpty)
                         : GridView.builder(
+                          padding: const EdgeInsets.all(10),
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
                             maxCrossAxisExtent: 250,

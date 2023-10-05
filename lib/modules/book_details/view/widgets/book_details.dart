@@ -1,12 +1,12 @@
  import '../../../../core/widgets/custom_network_image.dart';
 import '../../../../core/widgets/error_shape.dart';
+import '../../../book_web_view/view/book_web_view.dart';
 import 'model_sheet_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/function/url_lancher_functions.dart';
-import '../../../../core/utils/size_config.dart';
+ import '../../../../core/utils/size_config.dart';
 import '../../controller/book_details_cubit.dart';
  
 class BookDetailsItem extends StatelessWidget {
@@ -51,12 +51,12 @@ class BookDetailsItem extends StatelessWidget {
                     child: SelectableText(
                       controller.bookDdetails!.volumeInfo?.title ?? "",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                            fontFamily: "title",
+                      style: TextStyle( 
 
                           fontSize: getFont(30),
                           fontWeight: FontWeight.w700,
-                          color: AppColors.textColor),
+                          // color: AppColors.textColor
+                          ),
                     ),
                   ),
                   SizedBox(
@@ -74,11 +74,11 @@ class BookDetailsItem extends StatelessWidget {
                                 : controller
                                     .bookDdetails!.volumeInfo?.authors![0],
                             overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontFamily: "title",
+                            style: TextStyle( 
                                 fontSize: getFont(25),
                                 fontWeight: FontWeight.w500,
-                                color: AppColors.textColor),
+                                // color: AppColors.textColor
+                                ),
                           ),
                         ),
                         ElevatedButton(
@@ -101,7 +101,8 @@ class BookDetailsItem extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: getFont(20),
                                   fontWeight: FontWeight.w800,
-                                  color: Colors.white),
+                                  color:Theme.of(context).brightness.index==0?Colors.white: Colors.black
+                                  ),
                             ))
                       ],
                     ),
@@ -166,11 +167,16 @@ class BookDetailsItem extends StatelessWidget {
                   // ),
                   ElevatedButton(
                       onPressed: () {
-                        launchURL(
-                            url: controller
+                        // launchURL(
+                        //     url: controller
+                        //             .bookDdetails?.volumeInfo?.previewLink!
+                        //             .replaceFirst('http', 'https') ??
+                        //         "");
+                             Navigator.push(context, MaterialPageRoute(builder: (context) =>    BookWebViewScreen(title:
+                                           controller.bookDdetails!.volumeInfo?.title ?? ""  , bookUrl: controller
                                     .bookDdetails?.volumeInfo?.previewLink!
                                     .replaceFirst('http', 'https') ??
-                                "");
+                                ""),));
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 10),

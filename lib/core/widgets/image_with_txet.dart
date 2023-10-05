@@ -15,7 +15,7 @@ class ImageWithTextItem extends StatelessWidget {
       children: [
         Image.asset(
        image,
-          color: Colors.white,
+          color:Theme.of(context).brightness.index==0?Colors.white: Colors.black,
         ),
         SizedBox(
           height: getHeight(25),

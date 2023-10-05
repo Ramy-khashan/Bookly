@@ -79,9 +79,16 @@ class BookYouLikeItem extends StatelessWidget {
                                                 .volumeInfo?.categories![0]),
                                   ));
                             },
-                            child: ClipRRect(
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              borderRadius: BorderRadius.circular(10),
+                            child: Container(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+boxShadow: [BoxShadow(
+  blurRadius: 5,
+  spreadRadius: 2,color: 
+  Theme.of(context).brightness.index==0?Colors.black:Colors.grey.shade400
+)]
+),
                               child: GridTile(
                                 footer: GridTileBar(
                                   title: Text(
@@ -89,7 +96,7 @@ class BookYouLikeItem extends StatelessWidget {
                                         .smillerBooks[index].volumeInfo!.title??"",
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                        fontSize: getFont(22),
+                                        fontSize:  17 ,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   subtitle: Text(
@@ -101,7 +108,7 @@ class BookYouLikeItem extends StatelessWidget {
                                             .volumeInfo?.authors![0],
                                     maxLines: 1,
                                     style: TextStyle(
-                                      fontSize: getFont(20),
+                                      fontSize:  15 ,
                                     ),
                                   ),
                                   backgroundColor:

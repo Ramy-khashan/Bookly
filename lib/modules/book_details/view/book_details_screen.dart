@@ -56,7 +56,7 @@ class BookDetailsScreen extends StatelessWidget {
                         icon: Icon(
                           Icons.arrow_back_ios,
                           size: getWidth(30),
-                          color: Colors.white,
+                          color:Theme.of(context).brightness.index==0?Colors.white: Colors.black,
                         )),
                     const Spacer(),
                   ],

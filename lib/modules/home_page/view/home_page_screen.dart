@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../config/theme/controller/theme_controller_cubit.dart';
 import '../../../core/utils/size_config.dart';
 import '../controller/home_page_cubit.dart';
 import '../../../core/widgets/differant_loading_book_item.dart';
@@ -54,6 +55,24 @@ class HomePageScreen extends StatelessWidget {
                     stopPauseOnTap: true,
                   ),
                   const Spacer(),
+                  BlocBuilder<ThemeControllerCubit, ThemeControllerState>(
+                    builder: (context, state) {
+                      final themeController = ThemeControllerCubit.get(context);
+                      return IconButton(
+                          onPressed: () {
+                            themeController.changeMode();
+                          },
+                          icon: Icon(
+                            themeController.isDarkMode
+                                ? Icons.light_mode
+                                : Icons.dark_mode,
+                            size: getWidth(27),
+                            color: themeController.isDarkMode
+                                ? Colors.white
+                                : Colors.black,
+                          ));
+                    },
+                  ),
                   IconButton(
                       onPressed: () {
                         Navigator.push(

@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.2+3
+version: 1.0.3+4
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
@@ -28,20 +28,22 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: null
   cached_network_image: null
-  card_swiper: 
-  cupertino_icons:  
-  dartz:  
+  card_swiper: null
+  cupertino_icons: null
+  dartz: null
   dio: ^4.0.6
-  equatable:  
-  animated_text_kit:
+  equatable: null
   flutter:
     sdk: flutter
-  flutter_bloc:  
-  fluttertoast:  
-  get_it: 
-  shimmer: 
-  url_launcher: 
+  flutter_bloc: null
+  fluttertoast: null
+  get_it: null
+  shared_preferences: ^2.2.1
+  shimmer: null
+  url_launcher: null
+  webview_flutter: null
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
@@ -72,7 +74,7 @@ flutter:
   fonts:
     - family: head
       fonts:
-        - asset: assets/fonts/head.ttf    
+        - asset: assets/fonts/head.ttf
     - family: title
       fonts:
         - asset: assets/fonts/title.ttf

@@ -1,8 +1,7 @@
 import 'package:bookly/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/size_config.dart';
-import 'custom_network_image.dart';
+ import 'custom_network_image.dart';
 
 class ShowBookInfoItem extends StatelessWidget {
   final String bookImage;
@@ -24,23 +23,30 @@ class ShowBookInfoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
+    return Container(
       clipBehavior: Clip.antiAliasWithSaveLayer,
+decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(10),
+boxShadow: [BoxShadow(
+  blurRadius: 5,
+  spreadRadius: 2,color: 
+  Theme.of(context).brightness.index==0?Colors.black:Colors.grey.shade400
+)]
+),
       child: GridTile(
         footer: GridTileBar(title: Text(
                   bookTitle, 
                   overflow: TextOverflow.ellipsis,
                   
                   style: TextStyle(
-                      fontSize: getFont(22), fontWeight: FontWeight.bold),
+                      fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 subtitle:
                 Text(
                   bookAuther,
                   maxLines: 1,
                   style: TextStyle(
-                    fontSize: getFont(20),
+                    fontSize: 15,
                    ),
                 ),backgroundColor: AppColors.primaryColor.withOpacity(.7),),
           child: Hero(
